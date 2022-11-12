@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Danea_Gabriel_Lab2_rContext"
+    }
+  }
+}
