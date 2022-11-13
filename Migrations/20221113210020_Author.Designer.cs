@@ -4,6 +4,7 @@ using Danea_Gabriel_Lab2_r.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Danea_Gabriel_Lab2_r.Migrations
 {
     [DbContext(typeof(Danea_Gabriel_Lab2_rContext))]
-    partial class Danea_Gabriel_Lab2_rContextModelSnapshot : ModelSnapshot
+    [Migration("20221113210020_Author")]
+    partial class Author
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

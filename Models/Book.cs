@@ -21,7 +21,9 @@ namespace Danea_Gabriel_Lab2_r.Models
         //\s spatiu
         //[A-Z][a-z]+ numele- litera mare urmata de oricate litere mici
         //$ marcheaza sfarsitul sirului de caractere
-        public string Author { get; set; }
+        
+        public int? AuthorID { get; set; } 
+        public Author? Author { get; set; }
 
 
         [Range(1, 300)]

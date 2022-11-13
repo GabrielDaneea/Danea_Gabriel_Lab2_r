@@ -19,5 +19,7 @@ namespace Danea_Gabriel_Lab2_r.Data
         public DbSet<Danea_Gabriel_Lab2_r.Models.Publisher> Publisher { get; set; }
 
         public DbSet<Danea_Gabriel_Lab2_r.Models.Category> Category { get; set; }
+        public DbSet<Danea_Gabriel_Lab2_r.Models.Author> Author { get; set; }
+
     }
 }
