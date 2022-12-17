@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Danea_Gabriel_Lab2_r.Data;
 using Danea_Gabriel_Lab2_r.Models;
+using Microsoft.Data.SqlClient;
 
 namespace Danea_Gabriel_Lab2_r.Pages.Books
 {
@@ -23,13 +24,20 @@ namespace Danea_Gabriel_Lab2_r.Pages.Books
         public BookData BookD { get; set; }
         public int BookID { get; set; }
         public int CategoryID { get; set; }
+        public string TitleSort { get; set; }
+        public string AuthorSort { get; set; }
+        public string CurrentFilter { get; set; }
 
 
 
-        public async Task OnGetAsync(int? id, int? categoryID)
+        public async Task OnGetAsync(int? id, int? categoryID, string sortOrder, string
+searchString)
         {
 
             BookD = new BookData();
+            TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            AuthorSort = String.IsNullOrEmpty(sortOrder) ? "author_desc" : "";
+            CurrentFilter = searchString;
 
             BookD.Books = await _context.Book
                 .Include(b => b.Author)
@@ -39,6 +47,15 @@ namespace Danea_Gabriel_Lab2_r.Pages.Books
                 .AsNoTracking()
                 .OrderBy(b => b.Title)
                 .ToListAsync();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                BookD.Books = BookD.Books.Where(s => s.Author.FirstName.Contains(searchString)
+
+               || s.Author.LastName.Contains(searchString)
+               || s.Title.Contains(searchString));
+            }
+
             if (id != null)
             {
 
