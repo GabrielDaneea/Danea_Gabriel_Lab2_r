@@ -20,6 +20,8 @@ namespace Danea_Gabriel_Lab2_r.Data
 
         public DbSet<Danea_Gabriel_Lab2_r.Models.Category> Category { get; set; }
         public DbSet<Danea_Gabriel_Lab2_r.Models.Author> Author { get; set; }
+        public DbSet<Danea_Gabriel_Lab2_r.Models.Member> Member { get; set; }
+        public DbSet<Danea_Gabriel_Lab2_r.Models.Borrowing> Borrowing { get; set; }
 
     }
 }
